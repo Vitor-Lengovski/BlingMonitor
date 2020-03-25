@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitoramento</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="monitora.css">
+</head>
+
+<body>
+    <div class="main-input-page-container">
+        <img id="logo" src="images/logo.svg" alt="">
+
+        <p class="text-introduction">
+            Informe as URL's dos vídeos que deseja monitorar abaixo
+        </p>
+        <p class="text-exemplo">
+            Exemplo: 127.158.2.2:8080
+        </p>
+
+        <div class="inputs-container">
+            <div class="input-video-container">
+                <!-- <select name="video-type" class="video-type-select">
+                    <option value="url">URL</option>
+                   <option value="video">File</option> 
+                </select>  -->
+                <div class="camera-indication"><img src="images/camera.svg" alt=""></div>
+                <input type="url" name="image-input" class="image-input">
+
+                <button class="add-input-button" onclick="addImageInput(event, this)">+</button>
+                <button class="rm-input rm-first" >Rm</button>
+            </div>
+        </div>
+
+
+        <button class="submit-button">Continuar</button>
+    </div>
+    <div class="all-images-container">
+        <div class="video-container">
+            <iframe src='video1.html' allowfullscreen frameborder="0"></iframe>
+        </div>
+        
+        
+
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+</script>
+
+<script src='monitora.js'></script>
+
+</html>
