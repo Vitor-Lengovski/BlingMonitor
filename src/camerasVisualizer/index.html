@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitoramento</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,700&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="src/camerasVisualizer/monitora.css"> -->
+</head>
+<style>
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+
+/*------ Página de monitoramento, mostrando todos os vídeos informados -----------*/
+
+.all-views-container{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    justify-content: center;
+    min-height: 100vh;
+}
+.video-container {
+    flex: 1 0 500px;
+    min-height: 350px;
+    position: relative;
+   
+}
+
+
+
+
+iframe {
+    width: 100%;
+    height: 100%;
+}
+
+video {
+    width: 100%;
+    height: 100%;
+}
+</style>
+<body>
+   
+    <div class="all-views-container">
+        
+       
+        
+
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+</script>
+
+<script>
+
+    $.ajax({
+        method: "get",
+        url: "../../camerasIndexed.json",
+        
+    }).done(function(data){
+        addCamerasIframes(JSON.parse(data))
+    })
+
+    function addCamerasIframes(cameras){
+        const viewsContainer = $(".all-views-container")
+        console.log(cameras[0].URL)
+        cameras.forEach(function(cam){
+            viewsContainer.append(`
+            <div class="video-container">
+                <iframe src="http://${cam.URL}" allowfullscreen frameborder="0"></iframe>
+            </div>`)
+        })
+    }
+</script>
+
+</html>
